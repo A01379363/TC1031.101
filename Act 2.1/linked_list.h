@@ -212,20 +212,19 @@ public:
     int sorted_insert(Node<T> *newNode)
     {
         Node<T> *ptr = head;
-        if (newNode->get_val() <= ptr->get_val()) // if the value of the given node is less than or equal to
-        {                                         // the first element in the list
-            push(newNode->get_val());             // add element to the beggining of the list.
+        if (newNode->get_val() <= ptr->get_val() || is_empty()) // if the value of the given node is less than or equal to
+        {                                                       // the first element in the list
+            push(newNode->get_val());                           // add element to the beggining of the list.
             return 1;
         }
 
-        Node<T> *prev = NULL;
-        while (ptr->get_val() < newNode->get_val()) // loop that cycles a pointer through each node in the list as long as the
-        {                                           // element the pointer is pointing to is less than the value of the node being inserted.
-            prev = ptr;                             // saves current node the pointer is pointing to.
-            ptr = ptr->get_next();                  // increments the pointer to the next node.
+        while (ptr->get_next() != NULL && ptr->get_next()->get_val() < newNode->get_val()) // loop that cycles a pointer through each node in the list as long as the
+        {                                                                                  // element the pointer is pointing to is less than the value of the node being inserted.                                       // saves current node the pointer is pointing to.
+            ptr = ptr->get_next();                                                         // increments the pointer to the next node.
         }
-        newNode->set_next(ptr);  // makes the node being insterted point to the current node.
-        prev->set_next(newNode); // makes the previous node point to the new node.
+
+        newNode->set_next(ptr->get_next()); // makes the node being insterted point to the next node.
+        ptr->set_next(newNode);             // makes the current node point to the new node.
         return 1;
     } // O(n)
 

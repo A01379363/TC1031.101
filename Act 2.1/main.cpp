@@ -21,7 +21,7 @@ int main()
     list.push(1);
     cout << "Orignial Linked List:\n";
     list.print();
-    Node<int> *node5 = new Node<int>(5, NULL);
+    Node<int> *node5 = new Node<int>(9, NULL);
     list.sorted_insert(node5);
     Node<int> *node1 = new Node<int>(1, NULL);
     list.sorted_insert(node1);
