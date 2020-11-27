@@ -1,6 +1,6 @@
 /*
 Clase que, dada una ip y hostname guarda las conexiones
-entrantes y salientes en tack y queue respectivamente.
+entrantes y salientes en stack y queue respectivamente.
 
 Enrique Mondelli A01379363
 Diego Mejía      A01024228
